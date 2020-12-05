@@ -1,6 +1,5 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:11
 
-ARG JAR=app.jar
-COPY ${JAR} app.jar
+COPY build/libs/*jar  app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]
