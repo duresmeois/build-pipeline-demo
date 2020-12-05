@@ -8,10 +8,11 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    runs-on: ubuntu-latest
 
 jobs:
   build:
+
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +26,9 @@ jobs:
         run: ./gradlew build
 
   docker:
+
+    runs-on: ubuntu-latest
+
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
