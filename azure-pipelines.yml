@@ -42,15 +42,32 @@ stages:
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '1.11'
         sonarQubeRunAnalysis: false
-    - task: Docker@2
-      displayName: Build and push an image to container registry
+    - task: Bash@3
       inputs:
-        command: buildAndPush
+        targetType: 'inline'
+        script: |
+          export COMMIT_ID = $(git rev-parse HEAD)
+          echo "Commit ID is $(COMMIT_ID)"
+    - task: Docker@2
+      displayName: Build docker image
+      inputs:
+        command: 'build'
+        Dockerfile: '$(dockerfilePath)'
+        arguments: '--build-arg COMMIT_ID=$(COMMIT_ID)'
+        containerRegistry: $(dockerRegistryServiceConnection)
         repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
+        tags: |
+          $(tag)
+    - task: Docker@2
+      displayName: Push docker image
+      inputs:
+        command: 'push'
+        repository: $(imageRepository)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+
           
     - upload: manifests
       artifact: manifests
