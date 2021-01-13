@@ -46,8 +46,8 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          export COMMIT_ID = $(git rev-parse HEAD)
-          echo "Commit ID is $(COMMIT_ID)"
+          export COMMIT_ID=$(git rev-parse HEAD)
+          echo "Commit ID is $COMMIT_ID"
     - task: Docker@2
       displayName: Build docker image
       inputs:
