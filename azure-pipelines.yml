@@ -51,6 +51,13 @@ stages:
         configMode: 'manual'
         cliProjectKey: 'buildpipelinedemo'
         cliSources: '.'
+        extraProperties: |
+          sonar.java.source=1.11
+          sonar.java.coveragePlugin=jacoco
+          sonar.java.libraries=build/lib/*.jar
+          sonar.java.binaries=build/classes/java/main/**
+          sonar.java.test.binaries=build/classes/test/**
+          sonar.junit.reportPaths=test-results/test
     - task: SonarCloudAnalyze@1
     - task: Bash@3
       displayName: Get commit ID
