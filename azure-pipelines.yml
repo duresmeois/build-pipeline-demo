@@ -43,6 +43,13 @@ stages:
         codeCoverageClassFilesDirectories: 'build/classes/main/'
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '1.11'
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'S Thomson SonarCloud'
+        organization: 'scottthomson'
+        scannerMode: 'CLI'
+        configMode: 'file'
+    - task: SonarCloudAnalyze@1
     - task: Bash@3
       displayName: Get commit ID
       inputs:
