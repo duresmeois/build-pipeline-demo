@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: thomsonsbuildpipelinedemo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thomsonsbuildpipelinedemo
+  template:
+    metadata:
+      labels:
+        app: thomsonsbuildpipelinedemo 
+    spec:
+      containers:
+        - name: thomsonsbuildpipelinedemo 
+          image: thomsonsacr.azurecr.io/thomsonsbuildpipelinedemo
+          ports:
+          - containerPort: 80
