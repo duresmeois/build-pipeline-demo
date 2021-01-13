@@ -33,6 +33,14 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - task: Gradle@2
+      inputs:
+        gradleWrapperFile: 'gradlew'
+        tasks: 'clean build jar'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: false
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
