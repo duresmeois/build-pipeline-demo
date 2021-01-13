@@ -43,6 +43,7 @@ stages:
         jdkVersionOption: '1.11'
         sonarQubeRunAnalysis: false
     - task: Bash@3
+      displayName: Get commit ID
       inputs:
         targetType: 'inline'
         script: |
