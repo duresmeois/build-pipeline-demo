@@ -54,10 +54,12 @@ stages:
         extraProperties: |
           sonar.java.source=1.11
           sonar.java.coveragePlugin=jacoco
-          sonar.java.libraries=build/lib/*.jar
-          sonar.java.binaries=build/classes/java/main/**
-          sonar.java.test.binaries=build/classes/test/**
-          sonar.junit.reportPaths=test-results/test
+          sonar.java.libraries=$(Build.SourcesDirectory)/build/lib/*.jar
+          sonar.java.binaries=$(Build.SourcesDirectory)/build/classes/java/main/**
+          sonar.java.test.binaries=$(Build.SourcesDirectory)/build/classes/test/**
+          sonar.junit.reportPaths=$(Build.SourcesDirectory)/test-results/test
+          sonar.sources=$(Build.SourcesDirectory)/src/main/java
+          sonar.tests=$(Build.SourcesDirectory)/src/test/java
     - task: SonarCloudAnalyze@1
     - task: Bash@3
       displayName: Get commit ID
