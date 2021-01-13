@@ -48,7 +48,9 @@ stages:
         SonarCloud: 'S Thomson SonarCloud'
         organization: 'scottthomson'
         scannerMode: 'CLI'
-        configMode: 'file'
+        configMode: 'manual'
+        cliProjectKey: 'buildpipelinedemo'
+        cliSources: '.'
     - task: SonarCloudAnalyze@1
     - task: Bash@3
       displayName: Get commit ID
