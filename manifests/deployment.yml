@@ -16,4 +16,4 @@ spec:
         - name: thomsonsbuildpipelinedemo 
           image: thomsonsacr.azurecr.io/thomsonsbuildpipelinedemo
           ports:
-          - containerPort: 80
+          - containerPort: 8080
