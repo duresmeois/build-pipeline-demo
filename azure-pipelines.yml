@@ -56,7 +56,7 @@ stages:
           sonar.java.coveragePlugin=jacoco
           sonar.java.libraries=$(Build.SourcesDirectory)/build/libs/*.jar
           sonar.java.binaries=$(Build.SourcesDirectory)/build/classes/java/main/**
-          sonar.java.test.binaries=$(Build.SourcesDirectory)/build/classes/test/**
+          sonar.java.test.binaries=$(Build.SourcesDirectory)/build/classes/java/test/**
           sonar.junit.reportPaths=$(Build.SourcesDirectory)/test-results/test
           sonar.sources=$(Build.SourcesDirectory)/src/main/java
           sonar.tests=$(Build.SourcesDirectory)/src/test/java
