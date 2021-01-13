@@ -43,9 +43,6 @@ stages:
         codeCoverageClassFilesDirectories: 'build/classes/main/'
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '1.11'
-        sonarQubeRunAnalysis: true
-        sqGradlePluginVersionChoice: 'specify'
-        sonarQubeGradlePluginVersion: '2.6.1'
     - task: Bash@3
       displayName: Get commit ID
       inputs:
