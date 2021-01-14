@@ -51,6 +51,7 @@ stages:
         configMode: 'manual'
         cliProjectKey: 'buildpipelinedemo'
         cliSources: '.'
+        # TODO sonar.junit.reportPaths needs fixing
         extraProperties: |
           sonar.java.source=1.11
           sonar.java.coveragePlugin=jacoco
