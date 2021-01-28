@@ -18,5 +18,4 @@ public class SimpleController {
 				"Commit ID is " + version + ". " +
 				"Random output: " + randInt;
 	}
-
 }
